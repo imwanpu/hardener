@@ -1,5 +1,5 @@
 """
-ASGI config for hardener11 project.
+ASGI config for hardener_django project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
