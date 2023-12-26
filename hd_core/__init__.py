@@ -1,1 +1,3 @@
-print("This is hd_core.")
+# 全局变量
+
+scripts_dir = "/home/hd_admin"
