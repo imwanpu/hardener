@@ -1,5 +1,10 @@
 {
     "[python]": {
         "editor.defaultFormatter": null
-    }
+    },
+    "python.testing.pytestArgs": [
+        "hd_tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
