@@ -34,3 +34,12 @@ yum makecache
 
 - `yum` 源用的腾讯源，`epel` 源用的阿里源
 
+# 版本更新表
+
+## version 0.1.2
+
+- [ ] : hd_core 能够远程执行 `echo_hello.sh` 脚本
+
+## version 0.1.1
+
+- [ ] : hd_core 能够导出加固项列表

@@ -1,4 +1,4 @@
-from ....hd_core.defs.EnumSystem import EnumSystem
+from ....hd_core.defs.Enums import EnumSystem
 
 
 class TestEnumSystem:
