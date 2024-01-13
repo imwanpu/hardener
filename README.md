@@ -4,6 +4,7 @@ Linux加固程序
 ```text
 django==4.2.8
 pytest==7.4.3
+fabric==3.2.2
 ```
 
 # 使最小化安装的系统符合加固要求
@@ -18,6 +19,7 @@ sed -i 's|^#baseurl=https://download.example/pub|baseurl=https://mirrors.aliyun.
 sed -i 's|^metalink|#metalink|' /etc/yum.repos.d/epel*
 yum clean all
 yum makecache
+# Centos 7 要设置 sshd_config 的 UseDNS 为 no, TODO 后面补命令
 
 ```
 
