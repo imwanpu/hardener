@@ -46,3 +46,8 @@ yum makecache
 ## version 0.1.1
 
 - [x] : hd_core 能够远程执行 `echo_hello.sh` 脚本
+
+
+# 快速链接
+
+- [unittest](https://docs.python.org/zh-cn/3.9/library/unittest.html)
