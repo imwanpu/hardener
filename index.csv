@@ -1,0 +1,4 @@
+"T1","CentOS7","sayHello.sh","打招呼","无需重启"
+"T2","CentOS7","sayHelloAgain.sh","再次打招呼","无需重启"
+"T3","CentOS7","sayHelloAgainAgain.sh","再再次打招呼","需要重启"
+
