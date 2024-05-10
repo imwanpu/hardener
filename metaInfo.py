@@ -12,4 +12,4 @@ indexPath = join(dirname(abspath(__file__)), "index.csv")
 hostsPath = join(dirname(abspath(__file__)),"hosts.csv")
 
 sourceDir = dirname(abspath(__file__))
-targetDir = join("/tmp","hardener")
+targetDir = "/tmp"+"/hardener"

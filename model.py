@@ -7,8 +7,9 @@ from metaInfo import indexPath, hostsPath
 
 hosts: List[Host] = []
 needReboot = False
-scriptsNeedRun: List[str] = [] # 存储脚本的名字
+# indexOfscriptNeedRun: List[int] = [] # 所需执行脚本的索引
+# scriptsNeedRun: List[str] = [] # 存储脚本的名字
 
-# 读取自 index.csv 文件, 不可变
-indexMatrix: List[List] = csv2matrix(indexPath)
+
+indexMatrix: List[List] = [row for row in csv2matrix(indexPath) if row.append("不执行") == None]
 hostsMatrix: List[List] = csv2matrix(hostsPath)
