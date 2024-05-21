@@ -1,4 +1,4 @@
-"T0","CentOS7&Ubuntu20.04","sayHello.sh","打招呼","无需重启"
+"T0","CentOS7&Ubuntu20.04","sayHello.sh","打招呼","需要重启"
 "T1","CentOS7&Ubuntu20.04","adjust_password_complexity_policy.sh","调整密码复杂度策略","无需重启"
 "T2","CentOS7&Ubuntu20.04","add_password_expiry_limit.sh","添加口令生存期限制","无需重启"
 "T3","CentOS7&Ubuntu20.04","add_account_lock_policy.sh","添加账号锁定策略","无需重启"

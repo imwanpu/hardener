@@ -90,8 +90,8 @@ class MainWindow(QMainWindow):
     def bindSlots(self):
         self.buttonHello.clicked.connect(lambda: threadPool.submit(sayHello,"wori"))
         self.buttonRestoreVmwareWorkstationVM.clicked.connect(lambda: threadPool.submit(restoreVmwareWorkstationVM))
-        self.buttonTestConnectivity.clicked.connect(lambda: threadPool.submit(testConnectivity))
-        self.buttonCopy2Target.clicked.connect(lambda: threadPool.submit(copy2target))
+        self.buttonTestConnectivity.clicked.connect(lambda: threadPool.submit(testConnectivity, self.logbox))
+        self.buttonCopy2Target.clicked.connect(lambda: threadPool.submit(copy2target,self.logbox))
         self.buttonAddLog.clicked.connect(lambda: threadPool.submit(addLog, self.logbox, "测试日志功能"))
         self.buttonModifyModel4SelectedRows.clicked.connect(lambda: threadPool.submit(modifyModel4SelectedRows, self.checkboxList))
         self.buttonGenMainShell.clicked.connect(lambda: threadPool.submit(genMainShell, self.logbox))

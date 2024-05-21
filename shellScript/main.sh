@@ -1,3 +1,3 @@
 #!/usr/bin/bash
-/tmp/hardener/shellScript/echo.sh
+/tmp/hardener/shellScript/add_account_lock_policy.sh
 

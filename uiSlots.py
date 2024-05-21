@@ -21,7 +21,7 @@ def restoreVmwareWorkstationVM():
         dirname(abspath(__file__)), "restoreVmStatus.ps1")]).wait()
 
 
-def copy2target():
+def copy2target(logboxWidget):
     print("start copying")
     for row in model.hostsMatrix:
         print(f"start copying to {row[0]}")
@@ -39,21 +39,23 @@ def copy2target():
                 ftp_client = ssh.open_sftp()
                 ftp_client.put(local_path, remote_path)
                 ftp_client.close()
-                print(f"将 {local_path} 复制到 {row[0]}:{remote_path}")
+                addLog(logboxWidget,
+                       f"将 {local_path} 复制到 {row[0]}:{remote_path}")
         ssh.close()
 
 
-def testConnectivity():
+def testConnectivity(logboxWidget):
     for row in model.hostsMatrix:
         try:
             ssh_client = paramiko.SSHClient()
             ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh_client.connect(
                 hostname=row[0], username=row[1], password=row[2])
-            print(f"Successfully connected to {row[0]} via SSH")
+            addLog(logboxWidget, f"Successfully connected to {row[0]} via SSH")
             ssh_client.close()
         except Exception as e:
-            print(f"Failed to connect to {row[0]} via SSH: {str(e)}")
+            addLog(logboxWidget,
+                   f"Failed to connect to {row[0]} via SSH: {str(e)}")
 
 
 def addLog(logboxWidget: QTextEdit, logString: str):
@@ -72,12 +74,17 @@ def modifyModel4SelectedRows(checkboxList: List[QCheckBox]):
 
 def genMainShell(logboxWidget: QTextEdit):
     with open(os.path.join(metaInfo.shellScriptDir, "main.sh"), "wb") as f:
+        isReboot = False
         f.write(bytes("#!/usr/bin/bash\n", encoding='utf-8'))
         for row in model.indexMatrix:
             if row[5] == "执行":
                 f.write(
                     bytes(f"{metaInfo.targetDir}/shellScript/{row[2]}\n", encoding='utf-8'))
-
+                if row[4] == "需要重启":
+                    isReboot = True
+                print(row[4])
+        if isReboot:
+            f.write(bytes("reboot\n", encoding='utf-8'))
         f.write(bytes("\n", encoding='utf-8'))
     addLog(logboxWidget, "加固脚本生成完毕")
 
@@ -95,6 +102,6 @@ def runMainShell(logboxWidget: QTextEdit):
             while not stdout.channel.exit_status_ready():
                 pass
             ssh_client.close()
-            print(f"{row[0]}: 执行main.sh成功")
+            addLog(logboxWidget, f"{row[0]}: 执行main.sh成功")
         except Exception as e:
-            print(f"{row[0]} {str(e)}: 执行main.sh失败")
+            addLog(logboxWidget, f"{row[0]} {str(e)}: 执行main.sh失败")

@@ -13,3 +13,4 @@ needReboot = False
 
 indexMatrix: List[List] = [row for row in csv2matrix(indexPath) if row.append("不执行") == None]
 hostsMatrix: List[List] = csv2matrix(hostsPath)
+
